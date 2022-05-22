@@ -47,15 +47,14 @@ export default {
           blogHTML: "This is just a sample text",
           blogCoverPhoto: "designed-for-everyone",
         },
-      ],
-      sampleBlogCards: [
-        { blogTitle: "Blog 1", blogCoverPhoto: "stock-1", blogDate: "May 1 2021" },
-        { blogTitle: "Blog 2", blogCoverPhoto: "stock-2", blogDate: "May 3 2021" },
-        { blogTitle: "Blog 3", blogCoverPhoto: "stock-3", blogDate: "May 7 2021" },
-        { blogTitle: "Blog 4", blogCoverPhoto: "stock-4", blogDate: "May 9 2021" },
       ]
     };
   },
+  computed: {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards
+    }
+  }
 };
 </script>
 
