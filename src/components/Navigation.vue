@@ -9,7 +9,7 @@
       <div class="nav-links" v-show="!mobile">
         <ul>
           <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-          <router-link class="link" :to="{ name: 'Home' }">Blogs</router-link>
+          <router-link class="link" :to="{ name: 'Blog' }">Blogs</router-link>
           <router-link class="link" :to="{ name: 'Home' }"
             >Create Post</router-link
           >
@@ -23,7 +23,7 @@
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-        <router-link class="link" :to="{ name: 'Home' }">Blogs</router-link>
+        <router-link class="link" :to="{ name: 'Blog' }">Blogs</router-link>
         <router-link class="link" :to="{ name: 'Home' }"
           >Create Post</router-link
         >
