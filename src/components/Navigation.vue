@@ -13,7 +13,7 @@
           <router-link class="link" :to="{ name: 'Home' }"
             >Create Post</router-link
           >
-          <router-link class="link" :to="{ name: 'Home' }"
+          <router-link class="link" :to="{ name: 'Login' }"
             >Login/Register</router-link
           >
         </ul>
@@ -27,7 +27,7 @@
         <router-link class="link" :to="{ name: 'Home' }"
           >Create Post</router-link
         >
-        <router-link class="link" :to="{ name: 'Home' }"
+        <router-link class="link" :to="{ name: 'Login' }"
           >Login/Register</router-link
         >
       </ul>

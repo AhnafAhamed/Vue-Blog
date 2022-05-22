@@ -1,29 +1,51 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation/>
+      <Navigation v-if="!navigationDisabled" />
       <router-view />
-      <Footer/>
+      <Footer v-if="!navigationDisabled" />
     </div>
   </div>
 </template>
 
 <script>
-import Footer from './components/Footer.vue';
-import Navigation from './components/Navigation.vue';
+import Footer from "./components/Footer.vue";
+import Navigation from "./components/Navigation.vue";
 export default {
   name: "app",
-  components: {Navigation, Footer},
+  components: { Navigation, Footer },
   data() {
-    return {};
+    return {
+      navigationDisabled: null,
+    };
   },
-  created() {},
-  mounted() {},
-  methods: {},
-  watch: {},
+  created() {
+    this.checkRoute()
+  },
+  mounted() {
+    
+  },
+  methods: {
+    checkRoute() {
+      if (
+        this.$route.name === "Login" ||
+        this.$route.name === "Register" ||
+        this.$route.name === "ForgotPassword"
+      ) {
+        this.navigationDisabled = true;
+        return;
+      }
+      this.navigationDisabled = false;
+    },
+  },
+  watch: {
+    //Whenever the route changes run checkRoute() function
+   $route() {
+     this.checkRoute()
+   }
+  },
 };
 </script>
-
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
