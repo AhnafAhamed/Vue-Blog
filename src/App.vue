@@ -2,16 +2,18 @@
   <div class="app-wrapper">
     <div class="app">
       <router-view />
-      <navigation/>
+      <Navigation/>
+      <Footer/>
     </div>
   </div>
 </template>
 
 <script>
+import Footer from './components/Footer.vue';
 import Navigation from './components/Navigation.vue';
 export default {
   name: "app",
-  components: {Navigation},
+  components: {Navigation, Footer},
   data() {
     return {};
   },
