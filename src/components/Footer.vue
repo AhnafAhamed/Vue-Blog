@@ -49,7 +49,7 @@ import twitter from "../assets/Icons/twitter-brands.svg";
 import instagram from "../assets/Icons/instagram-brands.svg";
 import linkedin from "../assets/Icons/linkedin-brands.svg";
 export default {
-  name: "footer",
+  name: "Footer",
   components: {
     youTube,
     twitter,
