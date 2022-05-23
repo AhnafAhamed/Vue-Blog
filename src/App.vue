@@ -23,11 +23,21 @@ export default {
     };
   },
   created() {
-    this.checkRoute()
-    console.log(firebase.auth().currentUser)
-  },
-  mounted() {
+    this.checkRoute();
     
+  },
+  mounted() {//Check whether a user is logged in or not and sends the value true or false
+    firebase.auth().onAuthStateChanged((user) => {
+      this.$store.commit("updateUser", user);
+      if(user) {
+        this.$store.dispatch("getCurrentUser", user);
+        setTimeout(()=> {
+          console.log(this.$store.state.profileFirstName)
+        },2000)
+        
+      }
+    });
+
   },
   methods: {
     checkRoute() {
@@ -44,9 +54,9 @@ export default {
   },
   watch: {
     //Whenever the route changes run checkRoute() function
-   $route() {
-     this.checkRoute()
-   }
+    $route() {
+      this.checkRoute();
+    },
   },
 };
 </script>
