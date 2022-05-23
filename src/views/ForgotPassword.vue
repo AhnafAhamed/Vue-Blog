@@ -18,7 +18,7 @@
         <p>Forgot your passowrd? Enter your email to reset it</p>
         <div class="inputs">
           <div class="input">
-            <input type="text" placeholder="Email" v-model="email" />
+            <input type="email" placeholder="Email" v-model="email" />
             <email class="icon" />
           </div>
         </div>
@@ -34,7 +34,7 @@
 import email from "../assets/Icons/envelope-regular.svg";
 import Modal from "../components/Modal";
 import Loading from "../components/Loading";
-// import firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
 
 export default {
@@ -53,6 +53,19 @@ export default {
     Loading,
   },
   methods: {
+    resetPassword() {
+      this.loading = true;
+      firebase.auth().sendPasswordResetEmail(this.email).then(() => {
+        this.modalMessage = "If your account exists you will recieve a message"
+        this.loading = false
+        this.modalActive = true
+      }).catch((error) => {
+        this.modalMessage = error.message;
+        this.loading = false;
+        this.modalActive = true
+      })
+
+    },
     closeModal() {
       this.modalActive = !this.modalActive;
       this.email = "";
