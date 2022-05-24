@@ -13,7 +13,7 @@
           <router-link class="link" :to="{ name: 'Home' }"
             >Create Post</router-link
           >
-          <router-link class="link" :to="{ name: 'Login' }"
+          <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
             >Login/Register</router-link
           >
         </ul>
@@ -58,7 +58,7 @@
         <router-link class="link" :to="{ name: 'Home' }"
           >Create Post</router-link
         >
-        <router-link class="link" :to="{ name: 'Login' }"
+        <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
           >Login/Register</router-link
         >
       </ul>
@@ -87,12 +87,12 @@ export default {
       mobile: null,
       mobileNav: null,
       windowWidth: null,
-      profileMenu: null
+      profileMenu: null,
     };
   },
   created() {
+    this.checkScreen();
     window.addEventListener("resize", this.checkScreen);
-    this.checkScreen;
   },
   methods: {
     checkScreen() {

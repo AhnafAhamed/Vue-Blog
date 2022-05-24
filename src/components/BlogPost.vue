@@ -6,7 +6,7 @@
         <h2 v-else>{{ post.title }}</h2>
         <p v-if="post.welcomeScreen">{{ post.blogPost }}</p>
         <p class="content-preview" v-else>{{ post.blogHTML}}</p>
-        <router-link v-if="post.welcomeScreen" class="link link-light"  to="#">
+        <router-link v-if="post.welcomeScreen" class="link link-light"  :to="{name: 'Register'}">
           Login/Register<Arrow class="arrow arrow-light" />
         </router-link>
         <router-link v-else class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID }}">
